@@ -1,0 +1,177 @@
+/* colors and fonts used everywhere: old library + paper */
+:root {
+  --paper: #f3ead8;
+  --paper-light: #faf5e9;
+  --ink: #2e241b;
+  --ink-soft: #6a5a48;
+  --rule: #d8c9ad;
+  --oxblood: #7a2e2a;
+  --forest: #3d5a40;
+  --brass: #a8833f;
+  --wood: #6b4626;
+  --wood-dark: #4a2f19;
+  --serif: Georgia, "Palatino Linotype", Palatino, "Times New Roman", serif;
+  --type: "Courier New", Courier, monospace;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* paper texture: very faint lines + darker edges */
+body {
+  color: var(--ink);
+  font-family: var(--serif);
+  line-height: 1.55;
+  background-color: var(--paper);
+  background-image:
+    repeating-linear-gradient(0deg, rgba(120, 90, 50, 0.03) 0 1px, transparent 1px 4px),
+    repeating-linear-gradient(90deg, rgba(120, 90, 50, 0.02) 0 1px, transparent 1px 5px);
+  box-shadow: inset 0 0 120px rgba(110, 80, 40, 0.18);
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: normal;
+  letter-spacing: 0.5px;
+}
+
+/* page wrapper: footer stays at bottom */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main {
+  flex: 1;
+  width: 100%;
+  max-width: 1080px;
+  margin: 0 auto;
+  padding: 36px 20px 48px;
+}
+
+/* plain ink buttons */
+.btn {
+  display: inline-block;
+  padding: 7px 14px;
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  background: transparent;
+  color: var(--ink);
+  font-family: var(--serif);
+  font-size: 15px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.btn:hover {
+  background: var(--ink);
+  color: var(--paper-light);
+}
+
+.btn-primary {
+  background: var(--forest);
+  border-color: var(--forest);
+  color: var(--paper-light);
+}
+
+.btn-primary:hover {
+  background: #2c432f;
+}
+
+.btn-danger {
+  border-color: var(--oxblood);
+  color: var(--oxblood);
+}
+
+.btn-danger:hover {
+  background: var(--oxblood);
+  color: var(--paper-light);
+}
+
+/* thin double rule used as a divider */
+.double-rule {
+  border: none;
+  border-top: 3px double var(--ink-soft);
+  margin: 14px 0;
+}
+
+.footer {
+  text-align: center;
+  padding: 18px;
+  border-top: 3px double var(--rule);
+  color: var(--ink-soft);
+  font-size: 14px;
+  font-style: italic;
+}
+
+.not-found {
+  text-align: center;
+  font-style: italic;
+  color: var(--ink-soft);
+  padding: 60px 0;
+}
+
+/* inline success / error messages */
+.msg {
+  margin-top: 20px;
+  padding: 6px 12px;
+  border-left: 3px solid;
+  font-style: italic;
+}
+
+.msg-ok {
+  color: var(--forest);
+  background: rgba(61, 90, 64, 0.08);
+}
+
+.msg-error {
+  color: var(--oxblood);
+  background: rgba(122, 46, 42, 0.08);
+}
+
+/* index card / sheet of paper */
+.paper {
+  position: relative;
+  background-color: var(--paper-light);
+  border: 1px solid var(--rule);
+  box-shadow:
+    0 1px 1px rgba(0, 0, 0, 0.08),
+    0 8px 18px rgba(70, 45, 20, 0.18);
+}
+
+/* header of a card, with the red line under it */
+.card-head {
+  margin: 0 -30px 0;
+  padding: 0 30px 8px;
+  border-bottom: 1px solid rgba(160, 60, 50, 0.5);
+}
+
+.card-head h2 {
+  font-family: var(--type);
+  font-size: 22px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  word-break: break-word;
+}
+
+/* blue ruled lines, one every 30px; text inside uses line-height 30px */
+.ruled {
+  line-height: 30px;
+  background-image: repeating-linear-gradient(to bottom,
+      transparent 0 29px,
+      rgba(90, 110, 140, 0.22) 29px 30px);
+}
+
+@media (max-width: 600px) {
+  .card-head {
+    margin: 0 -18px;
+    padding: 0 18px 8px;
+  }
+}

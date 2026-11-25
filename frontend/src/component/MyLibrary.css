@@ -1,0 +1,110 @@
+/* two paper sheets side by side */
+.library-grid {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.ledger {
+  padding: 18px 30px 26px;
+}
+
+.ledger:nth-child(1) {
+  transform: rotate(-0.4deg);
+}
+
+.ledger:nth-child(2) {
+  transform: rotate(0.5deg);
+}
+
+.ledger .ruled {
+  margin-top: 20px;
+}
+
+.ledger-empty a {
+  color: var(--oxblood);
+}
+
+/* register of borrowed books */
+.ledger-table {
+  width: 100%;
+  margin-top: 16px;
+  border-collapse: collapse;
+}
+
+.ledger-table th {
+  text-align: left;
+  font-family: var(--type);
+  font-size: 12px;
+  font-weight: normal;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  border-bottom: 3px double var(--ink-soft);
+  padding: 6px 4px;
+}
+
+.ledger-table td {
+  padding: 10px 4px;
+  border-bottom: 1px solid rgba(90, 110, 140, 0.22);
+}
+
+.ledger-title {
+  font-style: italic;
+}
+
+.ledger-action {
+  text-align: right;
+}
+
+/* a line in the ledger: name on the left, number on the right */
+.stat-row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.stat-row span:last-child {
+  font-family: var(--type);
+}
+
+.stat-sub {
+  margin-top: 30px;
+  font-family: var(--type);
+  font-size: 12px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.ledger-msg {
+  max-width: 600px;
+  margin: 0 auto 24px;
+}
+
+/* shown when nobody is logged in */
+.empty-card {
+  max-width: 440px;
+  margin: 10px auto;
+  padding: 18px 30px 30px;
+  text-align: center;
+}
+
+.empty-card p {
+  margin: 30px 0 22px;
+  font-style: italic;
+}
+
+@media (max-width: 760px) {
+  .library-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .ledger {
+    padding: 16px 18px 22px;
+    transform: none;
+  }
+
+  .ledger:nth-child(1),
+  .ledger:nth-child(2) {
+    transform: none;
+  }
+}

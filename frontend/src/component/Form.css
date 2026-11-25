@@ -1,0 +1,169 @@
+/* add / edit form drawn as a catalogue card */
+.form-card {
+  max-width: 500px;
+  margin: 10px auto;
+  padding: 18px 30px 30px;
+  transform: rotate(0.4deg);
+}
+
+.form-sub {
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-top: 2px;
+}
+
+.form-card .card-head {
+  margin-bottom: 28px;
+}
+
+.field {
+  display: flex;
+  align-items: flex-end;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+
+.field label {
+  width: 86px;
+  flex-shrink: 0;
+  font-family: var(--type);
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* input is just a ruled line to write on */
+.field input,
+.field select,
+.field textarea {
+  flex: 1;
+  min-width: 0;
+  padding: 4px 2px;
+  border: none;
+  border-bottom: 1px solid var(--ink-soft);
+  background: transparent;
+  font-family: var(--serif);
+  font-size: 18px;
+  color: var(--ink);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-bottom: 2px solid var(--oxblood);
+}
+
+.field input::placeholder {
+  color: #b3a58c;
+  font-style: italic;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 6px;
+  cursor: pointer;
+  font-style: italic;
+}
+
+.check input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--forest);
+}
+
+.form-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.field textarea {
+  resize: vertical;
+  padding: 0 2px;
+  line-height: 30px;
+  /* ruled lines inside the notes box */
+  background-image: repeating-linear-gradient(to bottom,
+      transparent 0 29px,
+      rgba(90, 110, 140, 0.22) 29px 30px);
+}
+
+.field select {
+  cursor: pointer;
+}
+
+/* checkbox keeps its own small size */
+.check input {
+  flex: none;
+}
+
+/* two short fields side by side */
+.field-pair {
+  display: flex;
+  gap: 24px;
+}
+
+.field-pair .field {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* the second label in a pair only needs its own width */
+.field-pair .field + .field label {
+  width: auto;
+}
+
+.field-top {
+  align-items: flex-start;
+}
+
+@media (max-width: 600px) {
+  .field-pair {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .form-card {
+    padding: 16px 18px 24px;
+    transform: none;
+  }
+
+  .field {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+  }
+
+  .field input,
+  .field select,
+  .field textarea {
+    font-size: 16px;
+  }
+}
+
+/* login page extras */
+.switch {
+  margin-top: 22px;
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+.switch .link-btn {
+  margin-left: 8px;
+}
+
+.reader-lines {
+  margin-top: 28px;
+}
+
+.reader-label {
+  display: inline-block;
+  width: 86px;
+  font-family: var(--type);
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}

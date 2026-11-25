@@ -1,0 +1,329 @@
+/* catalogue header at top of the shelf page */
+.catalogue-head {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.catalogue-head h1 {
+  font-size: 38px;
+  font-variant: small-caps;
+  letter-spacing: 3px;
+}
+
+.catalogue-head .count {
+  font-style: italic;
+  color: var(--ink-soft);
+}
+
+/* search box and genre filter side by side */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  margin: 0 auto 34px;
+  max-width: 640px;
+}
+
+/* search box looks like a ruled line */
+.search {
+  display: block;
+  flex: 2;
+  min-width: 0;
+  padding: 8px 4px;
+  border: none;
+  border-bottom: 1px solid var(--ink-soft);
+  background: transparent;
+  font-family: var(--serif);
+  font-size: 17px;
+  font-style: italic;
+  color: var(--ink);
+  text-align: center;
+}
+
+.search:focus {
+  outline: none;
+  border-bottom: 2px solid var(--oxblood);
+}
+
+/* the bookcase: every row ends with a wooden board drawn by the background */
+.shelf {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 150px);
+  grid-auto-rows: 270px;
+  justify-content: center;
+  column-gap: 22px;
+  padding: 0 24px;
+  background-color: #3a2717;
+  background-image:
+    repeating-linear-gradient(to bottom,
+      transparent 0 252px,
+      var(--wood) 252px 262px,
+      var(--wood-dark) 262px 270px),
+    linear-gradient(to right, rgba(0, 0, 0, 0.35), transparent 8%, transparent 92%, rgba(0, 0, 0, 0.35));
+  border: 10px solid var(--wood-dark);
+  border-top-width: 14px;
+  box-shadow: 0 10px 24px rgba(40, 25, 10, 0.35);
+}
+
+/* one book cover */
+.book {
+  align-self: end;
+  height: 220px;
+  margin-bottom: 18px;
+  padding: 16px 12px 12px 22px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-radius: 2px 4px 4px 2px;
+  color: #f1e6cf;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+  /* darker strip on the left is the spine */
+  background-image: linear-gradient(to right,
+      rgba(0, 0, 0, 0.35) 0 8px,
+      rgba(255, 255, 255, 0.12) 8px 10px,
+      transparent 10px);
+  box-shadow: 3px 0 6px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.book:hover {
+  transform: translateY(-8px) rotate(-1deg);
+  box-shadow: 4px 8px 12px rgba(0, 0, 0, 0.45);
+}
+
+/* thin brass double frame on the cover */
+.book-frame {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border: 3px double rgba(214, 180, 110, 0.7);
+  padding: 8px 6px;
+  min-height: 0;
+  overflow: hidden; /* long titles stay inside the cover */
+}
+
+.book-title {
+  font-size: 17px;
+  line-height: 1.25;
+  word-break: break-word;
+  max-height: 5em; /* 4 lines, the full title is on the index card */
+  overflow: hidden;
+}
+
+.book-author {
+  margin-top: 8px;
+  line-height: 1.25;
+  font-size: 13px;
+  font-style: italic;
+  opacity: 0.85;
+}
+
+.book-status {
+  margin-top: 8px;
+  font-size: 11px;
+  font-variant: small-caps;
+  letter-spacing: 1px;
+  opacity: 0.8;
+}
+
+/* ribbon bookmark on books already read */
+.book.is-read::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  right: 18px;
+  width: 10px;
+  height: 34px;
+  background: var(--brass);
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 50% 80%, 0 100%);
+}
+
+/* borrowed books look pulled out of the shelf */
+.book.is-borrowed {
+  opacity: 0.45;
+  filter: grayscale(0.4);
+}
+
+.genre-filter {
+  flex: 1;
+  cursor: pointer;
+}
+
+.card-notes {
+  font-style: italic;
+}
+
+.card-hint {
+  margin-top: 14px;
+  font-style: italic;
+  font-size: 14px;
+  color: var(--ink-soft);
+}
+
+.card-hint a {
+  color: var(--oxblood);
+}
+
+/* cover colors, picked by position */
+.cover-0 { background-color: #7a2e2a; }
+.cover-1 { background-color: #3d5a40; }
+.cover-2 { background-color: #2f3e57; }
+.cover-3 { background-color: #6b4a2b; }
+.cover-4 { background-color: #4f2f45; }
+.cover-5 { background-color: #5a5a32; }
+
+/* empty shelf message, written on an index card */
+.empty {
+  max-width: 440px;
+  margin: 10px auto;
+  padding: 18px 30px 30px;
+  text-align: center;
+  transform: rotate(-0.6deg);
+}
+
+.empty p {
+  margin: 30px 0 22px;
+  font-style: italic;
+}
+
+.no-match {
+  text-align: center;
+  font-style: italic;
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+}
+
+.error-box {
+  max-width: 600px;
+  margin: 0 auto 24px;
+  padding: 10px 14px;
+  border-left: 3px solid var(--oxblood);
+  background: rgba(122, 46, 42, 0.08);
+  color: var(--oxblood);
+}
+
+/* detail view: dark overlay with an index card on top */
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  background: rgba(30, 20, 10, 0.55);
+}
+
+.index-card {
+  width: 100%;
+  word-break: break-word; /* long words wrap instead of leaving the card */
+  max-width: 480px;
+  padding: 18px 30px 26px;
+  transform: rotate(-1.2deg);
+}
+
+.index-card .close {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  border: none;
+  background: none;
+  font-family: var(--type);
+  font-size: 22px;
+  color: var(--ink-soft);
+  cursor: pointer;
+}
+
+.index-card .close:hover {
+  color: var(--oxblood);
+}
+
+.card-no {
+  font-family: var(--type);
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-bottom: 4px;
+}
+
+/* each line of the card sits on a ruled line */
+.card-body {
+  padding-top: 30px;
+}
+
+.card-row {
+  display: flex;
+  gap: 12px;
+}
+
+.card-row span {
+  min-width: 0; /* let long text shrink and wrap inside the row */
+}
+
+.card-label {
+  width: 80px;
+  flex-shrink: 0;
+  font-family: var(--type);
+  font-size: 13px;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.stamp-read {
+  color: var(--forest);
+  font-weight: bold;
+}
+
+.stamp-unread {
+  color: var(--oxblood);
+}
+
+.card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
+  line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+  .filters {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .catalogue-head h1 {
+    font-size: 28px;
+  }
+
+  .shelf {
+    grid-template-columns: repeat(auto-fill, 112px);
+    grid-auto-rows: 214px;
+    column-gap: 14px;
+    padding: 0 10px;
+    border-width: 8px;
+    background-image:
+      repeating-linear-gradient(to bottom,
+        transparent 0 198px,
+        var(--wood) 198px 207px,
+        var(--wood-dark) 207px 214px),
+      none;
+  }
+
+  .book {
+    height: 170px;
+    margin-bottom: 16px;
+    padding: 10px 8px 8px 16px;
+  }
+
+  .book-title {
+    font-size: 14px;
+  }
+
+  .index-card {
+    padding: 16px 18px 22px;
+    transform: none;
+  }
+}
